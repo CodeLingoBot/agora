@@ -124,7 +124,7 @@ func (o *object) Native() interface{} {
 	return o.m
 }
 
-// Get the length of the object. The behaviour can be overridden
+// Len gets the length of the object. The behaviour can be overridden
 // if a `__len` method is available on the object.
 func (o *object) Len() Val {
 	if v, ok := o.callMetaMethod("__len"); ok {
@@ -133,7 +133,7 @@ func (o *object) Len() Val {
 	return Number(len(o.m))
 }
 
-// Get the keys of the object in an array-like object value,
+// Keys gets the keys of the object in an array-like object value,
 // indexed from 0 the the number of keys - 1. It is the responsibility
 // of the object's implementation to return coherent values for Len()
 // and Keys(). The list of keys is unordered.
